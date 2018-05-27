@@ -34,14 +34,14 @@ stop_words = set(stopwords.words('english'))
 #MY_DETAILS
 def details():
     user = api.me()
-    print (colored("\nMY DETAILS", color='red', attrs=['underline']))
+    print (colored("\nMY DETAILS", color='green', attrs=['underline']))
     print 'Name: '  + user.name
     print 'Location: ' + user.location
     print 'Friends: ' + str(user.friends_count)
 
 def GetSearch():
     global tweets
-    tweet_input = raw_input("Enter the hash tag:" + colored("#",color='red'))
+    tweet_input = raw_input("Enter the hash tag:" + colored("#",color='green'))
     tweet_input = "#" + tweet_input
     tweets = api.search(q=tweet_input)
 
@@ -79,9 +79,9 @@ def get_sentiments(query):
     public_tweets = api.search(query)
     for tweet in public_tweets:
         text = tweet.text
-        print (colored(tweet.text, color='blue'))
+        print (colored(tweet.text, color='green'))
         r = sentiment(tweet.text)
-        print(colored(r, color= 'red'))
+        print(colored(r, color= 'green'))
         result = r['sentiment']
         if result == "positive":
             positive = p+1
@@ -135,14 +135,14 @@ def llt(query):
         del language[None]
 
     language_count = dict(Counter(language).most_common(5))
-    print (colored("Language: ", color='red', attrs=['bold']))
+    print (colored("Language: ", color='green', attrs=['bold']))
     print(language_count)
 
     location_count = dict(Counter(location).most_common(5))
-    print (colored("Location: ", color='red', attrs=['bold']))
+    print (colored("Location: ", color='green', attrs=['bold']))
     print(location_count)
     time_zone_count = dict(Counter(time_zone).most_common(5))
-    print (colored("Time Zone: ", color='red', attrs=['bold']))
+    print (colored("Time Zone: ", color='green', attrs=['bold']))
     print(time_zone_count)
 
 
